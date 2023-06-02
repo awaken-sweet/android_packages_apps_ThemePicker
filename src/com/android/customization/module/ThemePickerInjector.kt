@@ -160,9 +160,8 @@ open class ThemePickerInjector : WallpaperPicker2Injector(), CustomizationInject
         viewFullScreen: Boolean,
         testingModeEnabled: Boolean
     ): Fragment {
-        return if (wallpaperInfo is LiveWallpaperInfo) LivePreviewFragment()
-        else
-            ImagePreviewFragment().apply {
+        return (if (wallpaperInfo is LiveWallpaperInfo) LivePreviewFragment()
+        else ImagePreviewFragment()).apply {
                 arguments =
                     Bundle().apply {
                         putParcelable(PreviewFragment.ARG_WALLPAPER, wallpaperInfo)
